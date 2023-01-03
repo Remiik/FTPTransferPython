@@ -30,19 +30,19 @@ class SayHello(App):
 				size_hint = (1,0.1),
 				on_press=self.buttonFTP
 		)
-		self.buttonSend = Button(text="Send", 
+		self.button2 = Button(text="Send", 
 				size_hint = (1,0.1),
 				on_press=self.buttonSend
 		)
 		# creation du second bouton
-		self.buttonQuit = Button(text="Quit", 
+		self.button3 = Button(text="Quit", 
 				size_hint = (1,0.1),
 				on_press=self.buttonQuit
 		)
 		# ajout des boutons à la zone des boutons
 		self.buttonArea.add_widget(self.button)
-		self.buttonArea.add_widget(self.buttonSend)
-		self.buttonArea.add_widget(self.buttonQuit)
+		self.buttonArea.add_widget(self.button2)
+		self.buttonArea.add_widget(self.button3)
 		# ajout de la zone des boutons à la fenêtre
 		self.window.add_widget(self.buttonArea)
 		# affiche la fenetre construite	
@@ -55,7 +55,7 @@ class SayHello(App):
 		self.stop()
 
 	def buttonSend(self, instance):
-		self.stop()
+		self.message.text = "Ca veux se tappe ou bien ??"
 
 if __name__ == "__main__":
 	SayHello().run()
