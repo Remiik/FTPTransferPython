@@ -12,7 +12,7 @@ class SayHello(App):
 	def build(self):
 		self.window = GridLayout()
 		self.window.cols=1
-		self.window.size_hint = (0.5, 0.5)
+		self.window.size_hint = (1, 1)
 		self.window.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
 		self.image = Image(source="2133.JPG")
 		# on créer l'objet Label
@@ -24,19 +24,24 @@ class SayHello(App):
 		self.user = TextInput(text="", size_hint = (1,0.2), multiline = False)
 		self.window.add_widget(self.user)
 		# création de la zone des boutons
-		self.buttonArea = GridLayout(cols=2, size_hint = (1,0.2))
+		self.buttonArea = GridLayout(cols=3, size_hint = (1,0.2))
 		# création du premier bouton	
 		self.button = Button(text="Say Hello", 
-				size_hint = (1,0.2),
+				size_hint = (1,0.1),
 				on_press=self.buttonHello
+		)
+		self.buttonSend = Button(text="Say Sike", 
+				size_hint = (1,0.1),
+				on_press=self.buttonSend
 		)
 		# creation du second bouton
 		self.buttonQuit = Button(text="Quit", 
-				size_hint = (1,0.2),
+				size_hint = (1,0.1),
 				on_press=self.buttonQuit
 		)
 		# ajout des boutons à la zone des boutons
 		self.buttonArea.add_widget(self.button)
+		self.buttonArea.add_widget(self.buttonSend)
 		self.buttonArea.add_widget(self.buttonQuit)
 		# ajout de la zone des boutons à la fenêtre
 		self.window.add_widget(self.buttonArea)
@@ -47,6 +52,9 @@ class SayHello(App):
 		self.message.text = "Bonjour " + self.user.text
 
 	def buttonQuit(self, instance):
+		self.stop()
+
+	def buttonSend(self, instance):
 		self.stop()
 
 if __name__ == "__main__":
