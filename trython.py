@@ -1,61 +1,3 @@
-<<<<<<< HEAD
-import os
-os.environ['KIVY_TEXT'] = 'pil'
-#import kivy
-#from tkinter.tix import ButtonBox
-from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
-from kivy.uix.label import Label
-from kivy.uix.image import Image
-from kivy.uix.button import Button
-from kivy.uix.textinput import TextInput
-
-class SayHello(App):
-	def build(self):
-		self.window = GridLayout()
-		self.window.cols=1
-		self.window.size_hint = (0.5, 0.5)
-		self.window.pos_hint = {'center_x': 0.5, 'center_y': 0.5}
-		self.image = Image(source="2133.JPG")
-		# on créer l'objet Label
-		self.window.add_widget(self.image)
-  
-		self.message = Label(text="Bonjour de Malte")
-		# on ajoute le label à la fenêtre
-		self.window.add_widget(self.message)
-		self.user = TextInput(text="", size_hint = (1,0.2), multiline = False)
-		self.window.add_widget(self.user)
-		# création de la zone des boutons
-		self.buttonArea = GridLayout(cols=3, size_hint = (1,0.2))
-		# création du premier bouton	
-		self.button = Button(text="Say Hello", 
-				size_hint = (1,0.2),
-				on_press=self.buttonHello
-		)
-		# creation du second bouton
-		self.buttonQuit = Button(text="Quit", 
-				size_hint = (1,0.2),
-				on_press=self.buttonQuit
-		)
-		# ajout des boutons à la zone des boutons
-		self.buttonArea.add_widget(self.button)
-		self.buttonArea.add_widget(self.buttonQuit)
-		self.buttonArea.add_widget(self.buttonSend)
-		# ajout de la zone des boutons à la fenêtre
-		self.window.add_widget(self.buttonArea)
-		# affiche la fenetre construite	
-		return self.window
-
-	def buttonHello(self, instance):
-		self.message.text = "Bonjour " + self.user.text
-    
-    def buttonSend(self, instance):
-        self.message.text = "Envoyer "
-
-	def buttonQuit(self, instance):
-		self.stop()
-
-=======
 # pip install kivy
 
 from tkinter.tix import ButtonBox
@@ -84,11 +26,11 @@ class SayHello(App):
 		# création de la zone des boutons
 		self.buttonArea = GridLayout(cols=3, size_hint = (1,0.2))
 		# création du premier bouton	
-		self.button = Button(text="Say Hello", 
+		self.button = Button(text="Upload to FTP", 
 				size_hint = (1,0.1),
-				on_press=self.buttonHello
+				on_press=self.buttonFTP
 		)
-		self.buttonSend = Button(text="Say Sike", 
+		self.buttonSend = Button(text="Send", 
 				size_hint = (1,0.1),
 				on_press=self.buttonSend
 		)
@@ -106,7 +48,7 @@ class SayHello(App):
 		# affiche la fenetre construite	
 		return self.window
 
-	def buttonHello(self, instance):
+	def buttonFTP(self, instance):
 		self.message.text = "Bonjour " + self.user.text
 
 	def buttonQuit(self, instance):
@@ -115,7 +57,6 @@ class SayHello(App):
 	def buttonSend(self, instance):
 		self.stop()
 
->>>>>>> 0fe695f9e26456d2e16b04fccf84018861445fb0
 if __name__ == "__main__":
 	SayHello().run()
 
